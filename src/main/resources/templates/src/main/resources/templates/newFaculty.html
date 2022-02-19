@@ -1,0 +1,102 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Home page</title>
+  </head>
+  <body>
+   
+   <!-- nav bar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+ 
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      
+       <li class="nav-item active">
+        <a class="nav-link" th:href="@{/back_main}">Back to dashboard</a>
+      </li>
+      
+    </ul>
+    
+  </div>
+</nav>
+  <!-- nar bar --> 
+   
+   
+   <h1>Add New Faculty</h1>
+   
+   <div class="container p-5">
+   	<div class="row">
+   		<div class="col-md-6 offset-md-3">
+   			<div class="card">
+   				<div class="card-body">
+   					<h3 class="text-center text-primary">Add Faculty</h3>
+   					
+   					<form th:action="@{/faculty/save}" th:object="${faculty}" method="post">
+   					
+   							<div class="form-group">
+  							<label>Enter Name </label>
+  							<input type="text" class="form-control"  th:field="*{name}" required>
+   							</div>
+   					
+   							   						
+   						<div class="form-group">
+  							<label>Choose department </label>
+  							<select th:field="*{department}" class="form-control" placeholder ="Select Student gender" multiple="multiple" required>
+    							<th:block th:each="dept : ${listDepartment}">
+    							<option th:text="${dept.name}" th:value="${dept.id}" ></option>
+    							
+    							</th:block>		
+    								
+    						</select>
+   						</div>
+  						<div class="text-center p-5">
+   						<button type="submit" class="btn btn-primary btn-block">Add</button>
+   						</div>
+   					</form>
+   				</div>
+   			
+   			</div>
+   		
+   		</div>
+   	
+   	</div>
+  </div> 
+      
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
